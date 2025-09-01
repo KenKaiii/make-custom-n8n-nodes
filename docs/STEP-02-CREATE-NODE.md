@@ -10,18 +10,18 @@ Each node needs:
 
 ## Create Your Node
 
-1. **Choose an example to copy**
-   - `ExampleRest` - For REST APIs (easiest)
-   - `ExampleGraphQL` - For GraphQL APIs
-   - `ExampleWebhook` - For webhooks/triggers
+1. **Choose an example to reference**
+   - `ExampleRest` - For REST APIs (easiest) - see `/example-nodes/ExampleRest/`
+   - `ExampleGraphQL` - For GraphQL APIs - see `/example-nodes/ExampleGraphQL/`
+   - `ExampleWebhook` - For webhooks/triggers - see `/example-nodes/ExampleWebhook/`
 
-2. **Copy and rename the folder**
+2. **Create your node folder**
 
    ```bash
-   cp -r example-nodes/ExampleRest nodes/YourNodeName
+   mkdir -p nodes/YourNodeName
    cd nodes/YourNodeName
-   mv ExampleRest.node.ts YourNodeName.node.ts
-   mv exampleRest.svg yourNodeName.svg
+   # Create YourNodeName.node.ts based on example patterns
+   # Create yourNodeName.svg icon file
    ```
 
 3. **Modify the node code**

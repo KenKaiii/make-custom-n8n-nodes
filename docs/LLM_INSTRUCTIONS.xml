@@ -33,7 +33,9 @@
     <step number="3">
       <action>Create or modify node based on user requirements</action>
       <guidelines>
-        <guideline>Copy example node folder as starting point</guideline>
+        <guideline>Reference example nodes in /example-nodes/ for patterns and structure</guideline>
+        <guideline>Create new nodes from scratch in /nodes/ directory, NOT in /example-nodes/</guideline>
+        <guideline>Use examples as reference only - do not copy files</guideline>
         <guideline>Update class name to match file name</guideline>
         <guideline>Modify operations for target API</guideline>
       </guidelines>
