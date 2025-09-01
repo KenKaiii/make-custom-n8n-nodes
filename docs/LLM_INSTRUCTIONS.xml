@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<llm-instructions>
+  <purpose>
+    Create custom n8n nodes for API integrations
+  </purpose>
+
+  <context>
+    <project-type>n8n Custom Node Template</project-type>
+    <requirements>
+      <requirement>Node.js 20.19-24.x</requirement>
+      <requirement>TypeScript required</requirement>
+      <requirement>Self-hosted n8n only (not cloud)</requirement>
+    </requirements>
+  </context>
+
+  <workflow>
+    <step number="1">
+      <action>Read package.json to understand current setup</action>
+      <files>
+        <file>/package.json</file>
+      </files>
+    </step>
+
+    <step number="2">
+      <action>Review example nodes for patterns</action>
+      <files>
+        <file>/nodes/ExampleRest/ExampleRest.node.ts</file>
+        <file>/nodes/ExampleGraphQL/ExampleGraphQL.node.ts</file>
+        <file>/nodes/ExampleWebhook/ExampleWebhook.node.ts</file>
+      </files>
+    </step>
+
+    <step number="3">
+      <action>Create or modify node based on user requirements</action>
+      <guidelines>
+        <guideline>Copy example node folder as starting point</guideline>
+        <guideline>Update class name to match file name</guideline>
+        <guideline>Modify operations for target API</guideline>
+      </guidelines>
+    </step>
+
+    <step number="4">
+      <action>Add credentials if authentication needed</action>
+      <files>
+        <file>/credentials/ExampleApi.credentials.ts</file>
+      </files>
+    </step>
+
+    <step number="5">
+      <action>Update package.json with node paths</action>
+      <location>n8n.nodes and n8n.credentials arrays</location>
+    </step>
+
+    <step number="6">
+      <action>Build and test</action>
+      <commands>
+        <command>npm run build</command>
+        <command>npm run lint</command>
+      </commands>
+    </step>
+  </workflow>
+
+  <naming-conventions>
+    <convention type="package">n8n-nodes-[name]</convention>
+    <convention type="class">Must match filename exactly</convention>
+    <convention type="node-name">camelCase, unique identifier</convention>
+    <convention type="display-name">Human readable with spaces</convention>
+  </naming-conventions>
+
+  <node-structure>
+    <property name="name" required="true">Unique identifier (camelCase)</property>
+    <property name="displayName" required="true">Shown in UI</property>
+    <property name="description" required="true">Node purpose</property>
+    <property name="icon" required="true">file:nodeName.svg</property>
+    <property name="group" required="true">['transform'] or ['trigger']</property>
+    <property name="version" required="true">1</property>
+    <property name="inputs" required="true">['main'] for regular nodes</property>
+    <property name="outputs" required="true">['main'] for regular nodes</property>
+    <property name="credentials">Array if auth needed</property>
+    <property name="properties">INodeProperties[] for UI fields</property>
+  </node-structure>
+
+  <common-patterns>
+    <pattern name="REST API">
+      <use-case>Most API integrations</use-case>
+      <style>Declarative (JSON-based)</style>
+      <example>/nodes/ExampleRest/</example>
+    </pattern>
+
+    <pattern name="GraphQL">
+      <use-case>GraphQL APIs</use-case>
+      <style>Programmatic</style>
+      <example>/nodes/ExampleGraphQL/</example>
+    </pattern>
+
+    <pattern name="Webhook">
+      <use-case>Receive HTTP requests</use-case>
+      <style>Trigger node</style>
+      <example>/nodes/ExampleWebhook/</example>
+    </pattern>
+  </common-patterns>
+
+  <testing>
+    <local-test>
+      <step>npm run build</step>
+      <step>npm link</step>
+      <step>cd ~/.n8n/custom && npm link [package-name]</step>
+      <step>n8n start</step>
+      <step>Find node in n8n UI</step>
+    </local-test>
+  </testing>
+
+  <publishing>
+    <checklist>
+      <item>Name starts with n8n-nodes-</item>
+      <item>Keyword n8n-community-node-package included</item>
+      <item>Build successful</item>
+      <item>Linting passed</item>
+      <item>Version updated</item>
+    </checklist>
+    <command>npm publish</command>
+  </publishing>
+
+  <troubleshooting>
+    <issue type="node-not-appearing">
+      <cause>Wrong package.json paths</cause>
+      <solution>Check paths use .js extension in dist folder</solution>
+    </issue>
+
+    <issue type="build-error">
+      <cause>TypeScript errors</cause>
+      <solution>Fix syntax, check imports</solution>
+    </issue>
+
+    <issue type="credential-error">
+      <cause>Name mismatch</cause>
+      <solution>Credential name must match between files</solution>
+    </issue>
+  </troubleshooting>
+
+  <important-notes>
+    <note>Always use TypeScript, not JavaScript</note>
+    <note>Icons must be SVG format, 60x60px</note>
+    <note>Test locally before publishing</note>
+    <note>Custom nodes only work on self-hosted n8n</note>
+  </important-notes>
+</llm-instructions>

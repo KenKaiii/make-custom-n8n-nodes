@@ -1,0 +1,25 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Globe/Web background -->
+  <circle cx="30" cy="30" r="25" fill="#4A90E2" stroke="#2E5C8A" stroke-width="2"/>
+  
+  <!-- Latitude lines -->
+  <ellipse cx="30" cy="30" rx="25" ry="8" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="30" cy="30" rx="25" ry="16" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Longitude line -->
+  <path d="M30 5 Q 30 30 30 55" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+  <path d="M5 30 Q 30 30 55 30" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Extraction arrows pointing outward -->
+  <g transform="translate(30, 30)">
+    <!-- Top-right arrow -->
+    <path d="M8 -8 L14 -14 M14 -14 L10 -14 M14 -14 L14 -10" stroke="#FFD700" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <!-- Bottom-right arrow -->
+    <path d="M8 8 L14 14 M14 14 L10 14 M14 14 L14 10" stroke="#FFD700" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <!-- Top-left arrow -->
+    <path d="M-8 -8 L-14 -14 M-14 -14 L-10 -14 M-14 -14 L-14 -10" stroke="#FFD700" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </g>
+  
+  <!-- Center dot -->
+  <circle cx="30" cy="30" r="3" fill="#FFD700"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cloud shape background -->
+  <path d="M 45 35 C 50 35 52 31 52 27 C 52 23 49 20 45 20 C 44 15 39 12 34 12 C 30 12 26 14 24 17 C 22 16 20 16 18 17 C 14 18 12 22 12 25 C 9 26 8 29 8 32 C 8 36 11 38 15 38 L 45 38 Z" 
+        fill="#5CB85C" stroke="#4A9A4A" stroke-width="2"/>
+  
+  <!-- API text -->
+  <text x="30" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">API</text>
+  
+  <!-- Key icon overlay -->
+  <g transform="translate(38, 38)">
+    <!-- Key circle -->
+    <circle cx="0" cy="0" r="5" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+    <!-- Key teeth -->
+    <rect x="4" y="-1" width="8" height="2" fill="#FFD700"/>
+    <rect x="7" y="-1" width="2" height="3" fill="#FFD700"/>
+    <rect x="10" y="-1" width="2" height="3" fill="#FFD700"/>
+    <!-- Key hole -->
+    <circle cx="0" cy="0" r="1.5" fill="#4A9A4A"/>
+  </g>
+</svg>
