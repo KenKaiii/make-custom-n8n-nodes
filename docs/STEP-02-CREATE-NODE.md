@@ -18,7 +18,7 @@ Each node needs:
 2. **Copy and rename the folder**
 
    ```bash
-   cp -r nodes/ExampleRest nodes/YourNodeName
+   cp -r example-nodes/ExampleRest nodes/YourNodeName
    cd nodes/YourNodeName
    mv ExampleRest.node.ts YourNodeName.node.ts
    mv exampleRest.svg yourNodeName.svg

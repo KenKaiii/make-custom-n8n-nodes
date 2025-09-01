@@ -24,9 +24,9 @@
     <step number="2">
       <action>Review example nodes for patterns</action>
       <files>
-        <file>/nodes/ExampleRest/ExampleRest.node.ts</file>
-        <file>/nodes/ExampleGraphQL/ExampleGraphQL.node.ts</file>
-        <file>/nodes/ExampleWebhook/ExampleWebhook.node.ts</file>
+        <file>/example-nodes/ExampleRest/ExampleRest.node.ts</file>
+        <file>/example-nodes/ExampleGraphQL/ExampleGraphQL.node.ts</file>
+        <file>/example-nodes/ExampleWebhook/ExampleWebhook.node.ts</file>
       </files>
     </step>
 
@@ -84,19 +84,19 @@
     <pattern name="REST API">
       <use-case>Most API integrations</use-case>
       <style>Declarative (JSON-based)</style>
-      <example>/nodes/ExampleRest/</example>
+      <example>/example-nodes/ExampleRest/</example>
     </pattern>
 
     <pattern name="GraphQL">
       <use-case>GraphQL APIs</use-case>
       <style>Programmatic</style>
-      <example>/nodes/ExampleGraphQL/</example>
+      <example>/example-nodes/ExampleGraphQL/</example>
     </pattern>
 
     <pattern name="Webhook">
       <use-case>Receive HTTP requests</use-case>
       <style>Trigger node</style>
-      <example>/nodes/ExampleWebhook/</example>
+      <example>/example-nodes/ExampleWebhook/</example>
     </pattern>
   </common-patterns>
 
