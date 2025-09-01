@@ -33,6 +33,30 @@ npm install --save-peer n8n-workflow
 3. Verify keyword `n8n-community-node-package` exists
 4. Check n8n logs for errors
 
+## Node Updates Not Taking Effect
+
+**Problem**: After updating a community node, new features or fixes don't work
+
+**Solution**: **ALWAYS restart n8n after updating community nodes!**
+
+n8n caches node code in memory. Updates won't take effect until restart:
+
+```bash
+# Stop n8n
+# Then start it again
+n8n start
+```
+
+This is especially important for:
+
+- New node properties/options
+- Bug fixes in node logic
+- Changes to node behavior
+- Icon updates
+
+**Note**: Simply updating the npm package is NOT enough - n8n must be
+restarted to reload the node code.
+
 ## Installation Failures
 
 **Problem**: `npm ERR! 404 Not Found`

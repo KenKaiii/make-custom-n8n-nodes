@@ -46,10 +46,12 @@
     ]
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12"
+    "cheerio": "^1.0.0-rc.12",
+    "turndown": "^7.2.1"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.35",
+    "@types/turndown": "^5.0.5",
     "@typescript-eslint/parser": "~8.32.0",
     "eslint": "^8.57.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.3",

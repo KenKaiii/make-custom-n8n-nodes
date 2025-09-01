@@ -8,6 +8,7 @@ import {
 } from 'n8n-workflow';
 
 import * as cheerio from 'cheerio';
+import TurndownService from 'turndown';
 
 export class WebScraper implements INodeType {
 	description: INodeTypeDescription = {
@@ -195,6 +196,13 @@ export class WebScraper implements INodeType {
 						default: false,
 						description: 'Whether to include page metadata (title, description, etc.) in the output',
 					},
+					{
+						displayName: 'Convert to Markdown',
+						name: 'convertToMarkdown',
+						type: 'boolean',
+						default: false,
+						description: 'Whether to convert HTML content to Markdown format, preserving structure and formatting',
+					},
 				],
 			},
 		],
@@ -219,6 +227,7 @@ export class WebScraper implements INodeType {
 					userAgent?: keyof typeof userAgents;
 					timeout?: number;
 					includeMetadata?: boolean;
+					convertToMarkdown?: boolean;
 				};
 
 				if (!url) {
@@ -263,22 +272,36 @@ export class WebScraper implements INodeType {
 					// Get main content areas
 					const contentSelectors = ['main', 'article', '.content', '#content', '.post', '.entry-content'];
 					let content = '';
+					let htmlContent = '';
 					
 					for (const selector of contentSelectors) {
 						const element = $(selector);
 						if (element.length > 0) {
-							content = element.text().trim();
+							if (options.convertToMarkdown) {
+								htmlContent = element.html() || '';
+							} else {
+								content = element.text().trim();
+							}
 							break;
 						}
 					}
 					
 					// Fallback to body if no content area found
-					if (!content) {
-						content = $('body').text().trim();
+					if (!content && !htmlContent) {
+						if (options.convertToMarkdown) {
+							htmlContent = $('body').html() || '';
+						} else {
+							content = $('body').text().trim();
+						}
 					}
 					
-					// Clean up whitespace
-					content = content.replace(/\s+/g, ' ').trim();
+					if (options.convertToMarkdown && htmlContent) {
+						// Convert HTML to Markdown
+						content = htmlToMarkdown(htmlContent);
+					} else {
+						// Clean up whitespace for plain text
+						content = content.replace(/\s+/g, ' ').trim();
+					}
 					
 					result.content = content;
 				} else {
@@ -307,7 +330,7 @@ export class WebScraper implements INodeType {
 							// Return array of all matches
 							const values: any[] = [];
 							elements.each((_, elem) => {
-								const value = extractValue(elem, field.extractAttribute, field.customAttribute);
+								const value = extractValue(elem, field.extractAttribute, field.customAttribute, options.convertToMarkdown);
 								if (value !== null) {
 									values.push(value);
 								}
@@ -315,7 +338,7 @@ export class WebScraper implements INodeType {
 							result[field.fieldName] = values;
 						} else {
 							// Return first match only
-							const value = extractValue(elements[0], field.extractAttribute, field.customAttribute);
+							const value = extractValue(elements[0], field.extractAttribute, field.customAttribute, options.convertToMarkdown);
 							result[field.fieldName] = value;
 						}
 					}
@@ -343,14 +366,22 @@ export class WebScraper implements INodeType {
 	}
 }
 
-function extractValue(element: any, attribute: string, customAttribute?: string): any {
+function extractValue(element: any, attribute: string, customAttribute?: string, convertToMarkdown?: boolean): any {
 	const $elem = cheerio.load('')(element);
 	
 	switch (attribute) {
 		case 'text':
+			if (convertToMarkdown) {
+				const html = $elem.html();
+				return html ? htmlToMarkdown(html) : '';
+			}
 			return $elem.text().trim();
 		case 'html':
-			return $elem.html();
+			const html = $elem.html();
+			if (convertToMarkdown && html) {
+				return htmlToMarkdown(html);
+			}
+			return html;
 		case 'href':
 		case 'src':
 		case 'alt':
@@ -359,6 +390,34 @@ function extractValue(element: any, attribute: string, customAttribute?: string)
 		case 'custom':
 			return customAttribute ? $elem.attr(customAttribute) || null : null;
 		default:
+			if (convertToMarkdown) {
+				const html = $elem.html();
+				return html ? htmlToMarkdown(html) : '';
+			}
 			return $elem.text().trim();
 	}
+}
+
+function htmlToMarkdown(html: string): string {
+	const turndownService = new TurndownService({
+		headingStyle: 'atx',
+		codeBlockStyle: 'fenced',
+		fence: '```',
+		bulletListMarker: '-',
+	});
+	
+	// Add custom rule for code blocks with language detection
+	turndownService.addRule('fencedCodeBlock', {
+		filter: function (node: any) {
+			return node.nodeName === 'PRE' && node.firstChild?.nodeName === 'CODE';
+		},
+		replacement: function (content: string, node: any) {
+			const codeElement = node.querySelector('code');
+			const languageMatch = codeElement?.className?.match(/language-(\w+)/);
+			const language = languageMatch ? languageMatch[1] : '';
+			return '\n```' + language + '\n' + content + '\n```\n';
+		}
+	});
+	
+	return turndownService.turndown(html);
 }

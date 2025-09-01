@@ -1,14 +1,12 @@
 # n8n Custom Node Template
 
 ```text
-                    ______    ______
-                   /      \  /      \
-      ____        |        \/        | ____        __   __
-     / __ \   ___ | n8n      nodes  | / __ \  ____|  | |  |
-    / / / /  / _ \|       nodes      |/ / / / /____   | |  |___
-   / / / /  /  __/ \                / / / / /     |  | |   ___\
-  /_/ /_/   \___/   \______________/ /_/ /_/      |__| |___|
-  
+         ___          __  _   _  ___  ____  _____ ____  
+  _ __  ( _ )  _ __  |  \| | / _ \|  _ \| ____/ ___| 
+ | '_ \ / _ \ | '_ \ | |\  || | | | | | |  _| \___ \ 
+ | | | | (_) || | | || | \ || |_| | |_| | |___ ___) |
+ |_| |_|\___/ |_| |_||_|  \| \___/|____/|_____|____/ 
+                                                      
 ```
 
 The stupidly simple template for building custom n8n nodes
@@ -45,7 +43,7 @@ Your job is simple: use the template, tell your LLM what to do, run commands it 
 3. **Tell your LLM to work**
 
    ```text
-   "Read the /docs/ folder and create a custom n8n node for [your API/service]. 
+   "Read the /docs/ folder and create a custom n8n node for [your API/service].
    Use the validation script to check everything works."
    ```
 
@@ -127,8 +125,8 @@ Each one shows different patterns your LLM will use for real nodes.
 Here's exactly what to tell your AI assistant:
 
 ```text
-"Read the /docs/LLM_INSTRUCTIONS.xml file in this repository and help me create 
-a custom n8n node for [your API/service]. Follow the examples and use the 
+"Read the /docs/LLM_INSTRUCTIONS.xml file in this repository and help me create
+a custom n8n node for [your API/service]. Follow the examples and use the
 validation script to check everything works correctly."
 ```
 
@@ -138,7 +136,7 @@ understand exactly what to do.
 ## When Things Go Wrong (Your LLM Will Handle These)
 
 - **"My node doesn't show up in n8n"** - LLM runs `./validate-everything.js`
-- **"TypeScript errors"** - LLM checks the example nodes and fixes patterns  
+- **"TypeScript errors"** - LLM checks the example nodes and fixes patterns
 - **"npm publish failed"** - LLM runs validation script and fixes issues
 - **"Builds but breaks in n8n"** - LLM checks troubleshooting in `/docs/`
 
