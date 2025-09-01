@@ -14,6 +14,7 @@ export class SimpleAPI implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Simple API',
 		name: 'simpleApi',
+		icon: 'file:simpleApi.svg',
 		group: ['transform'],
 		version: 1,
 		description: 'Make authenticated API requests with API key authentication',

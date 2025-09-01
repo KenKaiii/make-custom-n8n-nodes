@@ -13,6 +13,7 @@ export class WebScraper implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Web Scraper',
 		name: 'webScraper',
+		icon: 'file:webScraper.svg',
 		group: ['transform'],
 		version: 1,
 		description: 'Extract data from websites using CSS selectors or automatic content extraction',

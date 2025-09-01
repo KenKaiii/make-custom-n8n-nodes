@@ -31,6 +31,7 @@ Each node needs:
    - `name`: unique identifier (camelCase)
    - `displayName`: what users see
    - `description`: what your node does
+   - `icon`: MUST add `'file:yourNodeName.svg'` property or node won't show icon
    - API endpoints and operations
 
 4. **Update package.json**

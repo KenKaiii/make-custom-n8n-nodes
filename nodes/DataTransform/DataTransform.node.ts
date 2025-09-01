@@ -11,6 +11,7 @@ export class DataTransform implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Data Transform',
 		name: 'dataTransform',
+		icon: 'file:dataTransform.svg',
 		group: ['transform'],
 		version: 1,
 		description: 'Transform data between different formats and structures',
