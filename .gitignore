@@ -6,3 +6,9 @@ dist
 npm-debug.log*
 yarn.lock
 .vscode/launch.json
+*.tgz
+.env
+.env.*
+*.log
+package-lock.json
+.daddy/

@@ -47,7 +47,7 @@ Fields:
 **Purpose**: Make authenticated API requests with various authentication
 methods.
 
-### Features
+### Features (SimpleAPI)
 
 - API Key authentication (header or query parameter)
 - All HTTP methods (GET, POST, PUT, DELETE, etc.)
@@ -66,6 +66,7 @@ methods.
 ### Credential Setup
 
 The `SimpleApi.credentials.ts` file shows how to:
+
 - Define credential fields
 - Use password fields for sensitive data
 - Configure where to send authentication (header vs query)

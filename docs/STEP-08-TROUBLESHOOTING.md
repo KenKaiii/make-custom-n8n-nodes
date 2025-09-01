@@ -7,6 +7,7 @@
 **Problem**: `Cannot find module 'n8n-workflow'`
 
 **Solution**:
+
 ```bash
 npm install --save-peer n8n-workflow
 ```
@@ -16,6 +17,7 @@ npm install --save-peer n8n-workflow
 **Problem**: `Module not found: Error: Can't resolve './YourNode.node.js'`
 
 **Solution**: Check package.json paths use `.js` not `.ts`:
+
 ```json
 "nodes": ["dist/nodes/YourNode/YourNode.node.js"]
 ```
@@ -40,6 +42,7 @@ npm install --save-peer n8n-workflow
 **Problem**: `EACCES: permission denied`
 
 **Solution**: Use sudo or fix npm permissions:
+
 ```bash
 sudo npm install -g n8n-nodes-yourname
 ```
@@ -49,6 +52,7 @@ sudo npm install -g n8n-nodes-yourname
 **Problem**: Node crashes when executed
 
 **Solution**: Check n8n console for detailed error:
+
 ```bash
 n8n start --tunnel
 ```
@@ -57,7 +61,8 @@ n8n start --tunnel
 
 **Problem**: "Credentials are not set" error
 
-**Solution**: 
+**Solution**:
+
 1. Add credentials in n8n UI
 2. Verify credential name matches in node code
 3. Check credential type matches
@@ -67,12 +72,13 @@ n8n start --tunnel
 **Problem**: Node works locally but not after npm install
 
 **Solution**:
+
 1. Ensure `dist/` folder is included in npm package
 2. Run `npm run build` before publishing
 3. Check `.npmignore` doesn't exclude needed files
 
 ## Getting Help
 
-- n8n Community Forum: https://community.n8n.io/
-- n8n Discord: https://discord.gg/n8n
+- n8n Community Forum: <https://community.n8n.io/>
+- n8n Discord: <https://discord.gg/n8n>
 - GitHub Issues: Your repository's issues page

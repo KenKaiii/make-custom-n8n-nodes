@@ -17,6 +17,12 @@ Follow the step-by-step guides in order:
 7. **STEP-07-INSTALL-N8N.md** - Install in n8n
 8. **STEP-08-TROUBLESHOOTING.md** - Fix common issues
 
+## Additional Guides
+
+- **DEPENDENCIES.md** - How to handle external packages/libraries
+- **VALIDATION.md** - Using the validate-everything.js script
+- **EXAMPLE-NODES.md** - Understanding the example nodes
+
 ## Quick Reference
 
 ### Required Files

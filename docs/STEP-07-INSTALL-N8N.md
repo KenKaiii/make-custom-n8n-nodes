@@ -11,7 +11,8 @@
 
 3. **Install your node**
    - Click "Install"
-   - Enter: `n8n-nodes-yourname`
+   - Enter YOUR package name from npm (e.g., `n8n-nodes-yourname`)
+   - This must match exactly what you published to npm
    - Click "Install"
    - Restart n8n when prompted
 

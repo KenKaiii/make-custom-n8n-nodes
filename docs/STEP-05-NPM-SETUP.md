@@ -4,7 +4,7 @@
 
 1. **Sign up at npmjs.com**
 
-   Go to https://www.npmjs.com/signup
+   Go to <https://www.npmjs.com/signup>
 
 2. **Verify your email**
 
@@ -19,7 +19,7 @@
    Enter:
    - Username: your-npm-username
    - Password: your-password
-   - Email: your-email@example.com
+   - Email: `your-email@example.com`
    - OTP: (if you have 2FA enabled)
 
 ## Prepare for Publishing

@@ -138,10 +138,34 @@
     </issue>
   </troubleshooting>
 
+  <dependencies>
+    <built-in-modules>
+      <module>Use this.helpers.httpRequest instead of axios</module>
+      <module>crypto, fs, path, url are already available</module>
+    </built-in-modules>
+    <adding-packages>
+      <step>Install as dependency: npm install package-name</step>
+      <step>Install types as devDependency: npm install --save-dev @types/package-name</step>
+      <step>Import in node: import * as package from 'package-name'</step>
+    </adding-packages>
+    <best-practices>
+      <practice>Prefer n8n built-in helpers over external packages</practice>
+      <practice>Keep package size minimal</practice>
+      <practice>Avoid heavy libraries like puppeteer</practice>
+    </best-practices>
+  </dependencies>
+  
+  <validation>
+    <command>./validate-everything.js</command>
+    <purpose>Run before every publish to catch all issues</purpose>
+    <checks>Package.json, node files, build, linting, dependencies, npm readiness</checks>
+  </validation>
+  
   <important-notes>
     <note>Always use TypeScript, not JavaScript</note>
     <note>Icons must be SVG format, 60x60px</note>
     <note>Test locally before publishing</note>
     <note>Custom nodes only work on self-hosted n8n</note>
+    <note>Run validate-everything.js before publishing</note>
   </important-notes>
 </llm-instructions>
