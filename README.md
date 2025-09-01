@@ -8,7 +8,7 @@
  |_| |_|\___/ |_| |_||_|  \| \___/|____/|_____|____/
 
 ```
-By Ken Kai
+By **Ken Kai does AI**
 
 The stupidly simple template for building custom n8n nodes
 
