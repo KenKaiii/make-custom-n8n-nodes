@@ -12,3 +12,6 @@ yarn.lock
 *.log
 package-lock.json
 .daddy/
+daddy_project.md
+.qlty/
+research_n8n_node_development.md

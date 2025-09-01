@@ -1,44 +1,40 @@
 # n8n Custom Node Template
 
 ```text
- ███▄    █  █    ██  ███▄    █     ███▄    █  ▒█████  ▓█████▄ ▓█████   ██████ 
- ██ ▀█   █  ██  ▓██▒ ██ ▀█   █     ██ ▀█   █ ▒██▒  ██▒▒██▀ ██▌▓█   ▀ ▒██    ▒ 
-▓██  ▀█ ██▒▓██  ▒██░▓██  ▀█ ██▒   ▓██  ▀█ ██▒▒██░  ██▒░██   █▌▒███   ░ ▓██▄   
-▓██▒  ▐▌██▒▓▓█  ░██░▓██▒  ▐▌██▒   ▓██▒  ▐▌██▒▒██   ██░░▓█▄   ▌▒▓█  ▄   ▒   ██▒
-▒██░   ▓██░▒▒█████▓ ▒██░   ▓██░   ▒██░   ▓██░░ ████▓▒░░▒████▓ ░▒████▒▒██████▒▒
-░ ▒░   ▒ ▒ ░▒▓▒ ▒ ▒ ░ ▒░   ▒ ▒    ░ ▒░   ▒ ▒ ░ ▒░▒░▒░  ▒▒▓  ▒ ░░ ▒░ ░▒ ▒▓▒ ▒ ░
-░ ░░   ░ ▒░░░▒░ ░ ░ ░ ░░   ░ ▒░   ░ ░░   ░ ▒░  ░ ▒ ▒░  ░ ▒  ▒  ░ ░  ░░ ░▒  ░ ░
-   ░   ░ ░  ░░░ ░ ░    ░   ░ ░       ░   ░ ░ ░ ░ ░ ▒   ░ ░  ░    ░   ░  ░  ░  
-         ░    ░              ░             ░     ░ ░     ░       ░  ░      ░  
-                                                       ░                      
+                    ______    ______
+                   /      \  /      \
+      ____        |        \/        | ____        __   __
+     / __ \   ___ | n8n      nodes  | / __ \  ____|  | |  |
+    / / / /  / _ \|       nodes      |/ / / / /____   | |  |___
+   / / / /  /  __/ \                / / / / /     |  | |   ___\
+  /_/ /_/   \___/   \______________/ /_/ /_/      |__| |___|
+  
 ```
 
 The stupidly simple template for building custom n8n nodes
 
 Want to connect n8n to that random API you found? This template makes it dead simple.
-Even if you've never touched TypeScript before, you'll have a working node in
-20 minutes.
-
-## By Ken Kai
+Your LLM does the heavy lifting while you just give directions and run commands.
 
 ## What This Thing Does
 
 This is a **template repository** - think of it as a cookie cutter for n8n nodes.
-Click "Use this template" on GitHub and you get:
+Click "Use this template" on GitHub and your LLM gets:
 
 - 3 working example nodes (WebScraper, SimpleAPI, DataTransform)
 - A magical validation script that catches every possible mistake
-- Documentation that actually makes sense
-- Step-by-step guides that won't leave you hanging
+- Documentation optimized for AI consumption
+- Step-by-step guides your LLM can actually follow
 
-Perfect for humans who want to automate things, and AI assistants who need
-clear instructions.
+Perfect for humans who direct their AI assistants to build things.
 
-## Quick Start (The "I Just Want It To Work" Version)
+## The LLM-First Workflow
 
-1. **Click "Use this template" on GitHub** (don't clone, use the template!)
+Your job is simple: use the template, tell your LLM what to do, run commands it suggests.
 
-2. **Clone YOUR new repo and install stuff**
+1. **Use this template** (don't clone - click "Use this template" on GitHub)
+
+2. **Clone YOUR new repo**
 
    ```bash
    git clone https://github.com/yourusername/your-new-repo.git
@@ -46,54 +42,48 @@ clear instructions.
    npm install
    ```
 
-3. **Run the validation script** (seriously, this saves you hours)
+3. **Tell your LLM to work**
 
-   ```bash
-   ./validate-everything.js
+   ```text
+   "Read the /docs/ folder and create a custom n8n node for [your API/service]. 
+   Use the validation script to check everything works."
    ```
 
-   This checks EVERYTHING - package.json, TypeScript, linting, common mistakes.
-   If it passes, you're golden.
+4. **Your LLM does the heavy lifting** - It will:
+   - Read the documentation
+   - Examine the example nodes
+   - Write your custom node code
+   - Run the validation script
+   - Fix any issues it finds
 
-4. **Build and test locally**
+5. **You just run the final commands** when your LLM says:
 
    ```bash
    npm run build
-   npm link
-   
-   # In your n8n installation:
-   cd ~/.n8n/custom
-   npm link n8n-nodes-template
-   n8n start
-   ```
-
-5. **Tell your AI assistant to help** (if you're using one)
-
-   ```text
-   "Read the /docs/ folder and help me create a custom n8n node for [your API]"
+   npm run validate
+   npm publish
    ```
 
 ## The Magic Validation Script
 
-**Before you do ANYTHING else, run this:**
+Your LLM will use this constantly, but you should know what it does:
 
 ```bash
 ./validate-everything.js
 ```
 
-This script is your best friend. It checks:
+This script checks:
 
 - Package.json is configured correctly
-- All your node files are properly structured
+- All node files are properly structured
 - TypeScript compiles without errors
 - ESLint isn't screaming at you
 - Your package is ready for npm
-- You haven't made any of the 47 common mistakes we've all made
+- You haven't made any of the 47 common mistakes
 
-If this passes, your node will probably work. If it fails, it tells you exactly
-what to fix.
+If this passes, your node works. If it fails, your LLM fixes the issues.
 
-## What You Get Out of the Box
+## What Your LLM Gets to Work With
 
 ### Three Ready-to-Go Example Nodes
 
@@ -101,29 +91,30 @@ what to fix.
 - **SimpleAPI** - Connect to REST APIs with authentication
 - **DataTransform** - Transform data between formats
 
-Each one shows different patterns you'll need for real nodes.
+Each one shows different patterns your LLM will use for real nodes.
 
-### Documentation That Doesn't Suck
+### Documentation Optimized for AI
 
 - `/docs/README.md` - Human-friendly overview
-- `/docs/LLM_INSTRUCTIONS.xml` - If you're using AI to help
-- `/docs/STEP-*` files - Literally step-by-step from zero to hero
-- `/docs/VALIDATION.md` - What that magic script actually does
+- `/docs/LLM_INSTRUCTIONS.xml` - Structured instructions for AI consumption
+- `/docs/STEP-*` files - Step-by-step guides your LLM can follow
+- `/docs/VALIDATION.md` - What that validation script actually checks
 
-## The Foolproof Process
+## The AI-Powered Process
 
-1. **Start with an example** - Copy one of the three nodes as your base
-2. **Modify the API calls** - Change the URLs, parameters, whatever
-3. **Run validation** - `./validate-everything.js` after every change
-4. **Test locally** - Make sure it actually works in n8n
-5. **Publish to npm** - `npm publish` and you're done
+1. **You say**: "Create a node for [service/API]"
+2. **LLM reads** the docs and examples
+3. **LLM writes** your custom node
+4. **LLM validates** with the script
+5. **LLM fixes** any issues
+6. **You run**: `npm publish` when it's ready
 
-## Requirements (The Boring Stuff)
+## Requirements
 
 - Node.js 20.15 or newer
 - npm (comes with Node)
 - A self-hosted n8n instance (custom nodes don't work on n8n Cloud)
-- Basic willingness to read error messages
+- An LLM assistant (Claude, ChatGPT, etc.)
 
 ## Important Notes
 
@@ -131,28 +122,25 @@ Each one shows different patterns you'll need for real nodes.
 - **Package naming** - Must start with `n8n-nodes-` (like `n8n-nodes-awesome-api`)
 - **Keywords required** - Must include `n8n-community-node-package` in package.json
 
-## Using This With AI Assistants
+## The Magic Prompt for Your LLM
 
-Got Claude, ChatGPT, or another AI helper? Here's the magic prompt:
+Here's exactly what to tell your AI assistant:
 
 ```text
 "Read the /docs/LLM_INSTRUCTIONS.xml file in this repository and help me create 
-a custom n8n node for [your API]. Follow the examples and use the validation 
-script to check our work."
+a custom n8n node for [your API/service]. Follow the examples and use the 
+validation script to check everything works correctly."
 ```
 
-The documentation is structured specifically for AI consumption, so it should
+The documentation is structured specifically for AI consumption, so your LLM will
 understand exactly what to do.
 
-## Common "Oh Crap" Moments (And How to Fix Them)
+## When Things Go Wrong (Your LLM Will Handle These)
 
-- **"My node doesn't show up in n8n"** - Run `./validate-everything.js`,
-  probably a package.json issue
-- **"TypeScript is yelling at me"** - Check the example nodes, copy their
-  patterns
-- **"npm publish failed"** - Run the validation script, it checks npm readiness
-- **"Everything builds but breaks in n8n"** - Check the troubleshooting guide in
-  `/docs/`
+- **"My node doesn't show up in n8n"** - LLM runs `./validate-everything.js`
+- **"TypeScript errors"** - LLM checks the example nodes and fixes patterns  
+- **"npm publish failed"** - LLM runs validation script and fixes issues
+- **"Builds but breaks in n8n"** - LLM checks troubleshooting in `/docs/`
 
 ## Contributing
 
@@ -167,9 +155,9 @@ MIT - Do whatever you want with this.
 
 - **n8n questions**: [n8n Community Forum](https://community.n8n.io/)
 - **Template issues**: Open an issue here
-- **"It's not working"**: Run `./validate-everything.js` first, then ask
+- **"It's not working"**: Tell your LLM to run `./validate-everything.js` first
 
 ---
 
-*Remember: If the validation script passes, you're probably fine. If it fails, fix
-what it complains about. This simple rule prevents 90% of headaches.*
+*Remember: Your LLM handles the technical stuff. You give directions and run final
+commands. If the validation script passes, you're golden.*
