@@ -15,6 +15,9 @@ The stupidly simple template for building custom n8n nodes
 Want to connect n8n to that random API you found? This template makes it dead simple.
 Your LLM does the heavy lifting while you just give directions and run commands.
 
+> [!TIP]
+> **Want to build your own apps with AI?** A free 7-day build challenge and 20+ step-by-step projects are in my free community: **[skool.com/raid](https://www.skool.com/raid)**
+
 ## What This Thing Does
 
 This is a **template repository** - think of it as a cookie cutter for n8n nodes.
